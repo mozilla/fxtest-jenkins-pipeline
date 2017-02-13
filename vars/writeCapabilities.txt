@@ -1,0 +1,11 @@
+<p>Write desired capabilities to a JSON file.</p>
+<dl>
+  <dt>writeCapabilities(capabilities, [path])</dt>
+  <dd>
+    Writes a JSON file containing the items from the <code>capabilities</code>
+    map to the specified <code>path</code> (for use by
+    <a href="http://pytest-selenium.readthedocs.io/en/latest/user_guide.html#capabilities-files">
+    pytest-selenium</a>). If omitted, the <code>path</code> defaults to
+    <code>capabilities.json</code> in the working directory.
+  </dd>
+</dl>
