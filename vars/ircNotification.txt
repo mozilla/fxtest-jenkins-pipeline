@@ -1,9 +1,9 @@
 <p>Sends a notice to IRC with the current build result.</p>
 <dl>
-  <dt>ircNotification([server, nick, channel])</dt>
+  <dt>ircNotification([channel, nick, server])</dt>
   <dd>
-    Sends a notification to IRC with the specified <code>server</code>,
-    <code>nick</code>, and <code>channel</code>. By default it will connect to
+    Sends a notification to IRC with the specified <code>channel</code>,
+    <code>nick</code>, and <code>server</code>. By default it will connect to
     <code>irc.mozilla.org:6697</code> as <code>fxtest</code> and join the
     <code>#fx-test-alerts</code> channel.
 </dl>
