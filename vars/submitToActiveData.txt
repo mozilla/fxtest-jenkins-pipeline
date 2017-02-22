@@ -1,0 +1,10 @@
+<p>Publishes a structured log to S3 for processing by ActiveData.</p>
+<dl>
+  <dt>submitToActiveData(path, [bucket, region])</dt>
+  <dd>
+    Publishes the structured log at <code>path</code>, to the specified
+    <code>bucket</code> and <code>region</code>. Defaults to bucket
+    <code>net-mozaws-stage-fx-test-activedata/${BUILD_TAG}</code> and region
+    <code>us-east-1</code>. Note that ActiveData must be configured to look for
+    structured logs in the specified bucket.
+</dl>
