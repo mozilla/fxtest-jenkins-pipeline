@@ -24,7 +24,7 @@ def call(String path,
         storageClass: 'STANDARD',
         uploadFromSlave: false,
         useServerSideEncryption: false]],
-      pluginFailureResultConstraint: 'FAILURE',
+      pluginFailureResultConstraint: 'SUCCESS',
       profileName: 'ActiveData',
       userMetadata: []])
 }
