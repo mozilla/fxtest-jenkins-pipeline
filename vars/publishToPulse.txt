@@ -1,0 +1,13 @@
+<p>
+  Publish message to a
+  <a href="https://wiki.mozilla.org/Auto-tools/Projects/Pulse">Pulse</a>
+  exchange.</p>
+<dl>
+  <dt>publishToPulse(exchange, routingKey, message, [schema])</dt>
+  <dd>
+    Publishes the <code>message</code>, to Pulse with the specified
+    <code>exchange</code> and <code>routingKey</code>. If a schema is provided
+    then it will be used to check that the message is valid. If the message
+    fails to pass validation, details will be output to the console log and
+    <code>ProcessingException</code> will be thrown.
+</dl>

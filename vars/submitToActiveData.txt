@@ -1,10 +1,9 @@
-<p>Publishes a structured log to S3 for processing by ActiveData.</p>
+<p>
+  Submit structured logs to
+  <a href="https://wiki.mozilla.org/Auto-tools/Projects/ActiveData">ActiveData</a>.
+</p>
 <dl>
-  <dt>submitToActiveData(path, [bucket, region])</dt>
+  <dt>submitToActiveData(logPath)</dt>
   <dd>
-    Publishes the structured log at <code>path</code>, to the specified
-    <code>bucket</code> and <code>region</code>. Defaults to bucket
-    <code>net-mozaws-stage-fx-test-activedata/${BUILD_TAG}</code> and region
-    <code>us-east-1</code>. Note that ActiveData must be configured to look for
-    structured logs in the specified bucket.
+    Publishes the structured log(s) at <code>logPath</code> to ActiveData.
 </dl>

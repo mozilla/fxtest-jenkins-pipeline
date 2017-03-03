@@ -1,0 +1,11 @@
+<p>
+  Publish files to an <a href="https://aws.amazon.com/s3/">Amazon S3</a>
+  bucket.
+</p>
+<dl>
+  <dt>publishToS3(path, bucket, [region])</dt>
+  <dd>
+    Publishes the files at <code>path</code> to the specified S3
+    <code>bucket</code> and <code>region</code>. Defaults to region
+    <code>us-east-1</code>.
+</dl>

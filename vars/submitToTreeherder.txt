@@ -1,0 +1,17 @@
+<p>
+  Submit build results to
+  <a href="https://wiki.mozilla.org/EngineeringProductivity/Projects/Treeherder">Treeherder</a>.
+</p>
+<dl>
+  <dt>
+    submitToTreeherder(project, jobSymbol, jobName, [artifactPath, logPath,
+    groupSymbol, groupName])
+  </dt>
+  <dd>
+    Submits the build result for <code>project</code> to Treeherder using the
+    specified <code>jobSymbol</code> and <code>jobName</code>. If provided,
+    files located by <code>artifactPath</code> and <code>logPath</code> will be
+    published to Amazon S3 and linked from the build results. If job is part of
+    a group, specify this using the optional <code>groupSymbol</code> and
+    <code>groupName</code> arguments.
+</dl>
