@@ -145,6 +145,26 @@ writeCapabilities(
 )
 ```
 
+## Version History
+
+### 1.5 (2017-03-31)
+Changed S3 profile `fx-test-jenkins-s3-publisher`.
+
+### 1.4 (2017-02-31)
+Introduce `publishToS3`, `publishToPulse`, and `submitToTreeherder` steps.
+
+### 1.3 (2017-02-23)
+Don't mark jobs as unstable if `submitToActiveData` fails.
+
+### 1.2 (2017-02-22)
+Added `submitToActiveData` step for publishing structured logs to S3 for processing by ActiveData.
+
+### 1.1 (2017-02-13)
+Changed order of arguments for `ircNotification` for ease of specifying alternate channel.
+
+### 1.0 (2017-02-13)
+Initial release with `ircNotification` and `writeCapabilities` steps.
+
 [Pulse]: https://wiki.mozilla.org/Auto-tools/Projects/Pulse
 [Pipeline Utility Steps Plugin]: https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Utility+Steps+Plugin
 [S3 Plugin]: https://wiki.jenkins-ci.org/display/JENKINS/S3+Plugin
