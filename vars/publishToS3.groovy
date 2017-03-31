@@ -24,7 +24,7 @@ def call(String path, String bucket, String region = 'us-east-1') {
       uploadFromSlave: false,
       useServerSideEncryption: false]],
     pluginFailureResultConstraint: 'SUCCESS',
-    profileName: 'ActiveData'])
+    profileName: 'fx-test-jenkins-s3-publisher'])
   return getLinks(bucket, path)
 }
 
