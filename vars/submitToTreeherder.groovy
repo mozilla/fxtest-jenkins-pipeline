@@ -58,7 +58,7 @@ def getMachine() {
   version = System.getProperty("os.version").toLowerCase().replaceAll('\\W', '-')
   architecture = System.getProperty("os.arch")
   return [
-    name: new URI(env.JENKINS_URL).getHost(),
+    name: new URI(env.JENKINS_URL).getHost().split('\\.')[0],
     platform: [os, version, architecture].join('-'),
     os: os,
     architecture: architecture
