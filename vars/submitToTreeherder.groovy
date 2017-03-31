@@ -37,7 +37,7 @@ def call(String project,
     productName: project,
     buildMachine: machine,
     runMachine: machine,
-    jobInfo: [summary: 'myJobInfoSummary', links: getJobLinks(artifactPath)],
+    jobInfo: [links: getJobLinks(artifactPath)],
     logs: getLogs(logPath),
     version: 1
   ]
