@@ -95,7 +95,7 @@ submitToActiveData('results/raw.txt')
 Submits the build result for `project` to [Treeherder] using the specified
 `jobSymbol` and `jobName`. If provided, files located by `artifactPath` and
 `logPath` will be published to Amazon S3 and linked from the build results. By
-default the job will be have a `groupSymbol` of 'j', and a `groupName` of
+default the job will have a `groupSymbol` of 'j', and a `groupName` of
 'Executed by Jenkins'. To leave the job ungrouped pass a `groupSymbol` of '?'.
 
 ### Requirements
