@@ -62,10 +62,12 @@ def getDisplay(jobSymbol, jobName, groupSymbol = null, groupName = null) {
   display = [
     jobSymbol: jobSymbol,
     jobName: jobName,
-    groupSymbol: groupSymbol ? groupSymbol : '?'
+    groupSymbol: groupSymbol ? groupSymbol : 'j'
   ]
-  if ( groupName != null) {
+  if ( groupName != null ) {
     display.groupName = groupName
+  } else if ( groupSymbol != '?' ) {
+    display.groupName = 'Executed by Jenkins'
   }
   return display
 }

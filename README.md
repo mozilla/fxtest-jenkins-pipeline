@@ -94,23 +94,31 @@ submitToActiveData('results/raw.txt')
 ## submitToTreeherder
 Submits the build result for `project` to [Treeherder] using the specified
 `jobSymbol` and `jobName`. If provided, files located by `artifactPath` and
-`logPath` will be published to Amazon S3 and linked from the build results. If
-job is part of a group, specify this using the optional `groupSymbol` and
-`groupName` arguments.
+`logPath` will be published to Amazon S3 and linked from the build results. By
+default the job will have a `groupSymbol` of 'j', and a `groupName` of
+'Executed by Jenkins'. To leave the job ungrouped pass a `groupSymbol` of '?'.
 
 ### Requirements
 See [publishToS3](#publishtos3) and [publishToPulse](#publishtopulse).
 
 ### Examples
 ```groovy
-// submit ungrouped build results without artifacts or logs
+// submit default grouped build results without artifacts or logs
 submitToTreeherder(
   project: 'foo',
   jobSymbol: 'T',
   jobName: 'Tests'
 )
 
-// submit grouped build results with artifacts and log
+// submit ungrouped build results without artifacts or logs
+submitToTreeherder(
+  project: 'foo',
+  jobSymbol: 'T',
+  jobName: 'Tests',
+  groupSymbol: '?'
+)
+
+// submit custom grouped build results with artifacts and log
 submitToTreeherder(
   project: 'foo',
   jobSymbol: 'I',
@@ -146,6 +154,9 @@ writeCapabilities(
 ```
 
 ## Version History
+
+### 1.6 (unreleased)
+Provide a default group for Treeherder jobs.
 
 ### 1.5 (2017-03-31)
 Changed S3 profile `fx-test-jenkins-s3-publisher`.
