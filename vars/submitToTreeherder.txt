@@ -11,7 +11,8 @@
     Submits the build result for <code>project</code> to Treeherder using the
     specified <code>jobSymbol</code> and <code>jobName</code>. If provided,
     files located by <code>artifactPath</code> and <code>logPath</code> will be
-    published to Amazon S3 and linked from the build results. If job is part of
-    a group, specify this using the optional <code>groupSymbol</code> and
-    <code>groupName</code> arguments.
+    published to Amazon S3 and linked from the build results. By default the
+    job will be have a <code>groupSymbol</code> of 'j', and a
+    <code>groupName</code> of 'Executed by Jenkins'. To leave the job ungrouped
+    pass a <code>groupSymbol</code> of '?'.
 </dl>

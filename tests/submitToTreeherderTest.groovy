@@ -18,8 +18,8 @@ class SubmitToTreeherderTests extends BasePipelineTest {
     void defaultGroup() {
         def script = loadScript('vars/submitToTreeherder.groovy')
         def display = script.getDisplay('myJobSymbol', 'myJobName')
-        assert display.groupSymbol == '?'
-        assert !display.containsKey('groupName')
+        assert display.groupSymbol == 'j'
+        assert display.groupName == 'Executed by Jenkins'
     }
 
     @Test
@@ -28,6 +28,14 @@ class SubmitToTreeherderTests extends BasePipelineTest {
         def display = script.getDisplay('myJobSymbol', 'myJobName', 'myGroupSymbol', 'myGroupName')
         assert display.groupSymbol == 'myGroupSymbol'
         assert display.groupName == 'myGroupName'
+    }
+
+    @Test
+    void noGroup() {
+        def script = loadScript('vars/submitToTreeherder.groovy')
+        def display = script.getDisplay('myJobSymbol', 'myJobName', '?', null)
+        assert display.groupSymbol == '?'
+        assert !display.containsKey('groupName')
     }
 
 }
