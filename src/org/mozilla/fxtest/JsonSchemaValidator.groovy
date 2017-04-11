@@ -1,9 +1,12 @@
 package org.mozilla.fxtest
 
-import org.jenkinsci.plugins.pipeline.modeldefinition.shaded.com.fasterxml.jackson.databind.ObjectMapper
-import com.github.fge.jsonschema.exceptions.ProcessingException
+@Grab(group='com.fasterxml.jackson.core', module='jackson-databind', version='2.8.8')
+import com.fasterxml.jackson.databind.ObjectMapper
+
+@Grab(group='com.github.fge', module='json-schema-validator', version='2.2.5')
+import com.github.fge.jackson.JsonLoader
+import com.github.fge.jsonschema.core.exceptions.ProcessingException
 import com.github.fge.jsonschema.main.JsonSchemaFactory
-import com.github.fge.jsonschema.util.JsonLoader
 
 @NonCPS
 def validate(payload, schema) {

@@ -33,6 +33,7 @@ output to the console log and `ProcessingException` will be thrown.
 
 ### Requirements
 * Pulse credentials to be configured in Jenkins.
+* [Pipeline Model Definition Plugin] v1.1.2 or later.
 * [Pipeline Utility Steps Plugin].
 
 ### Examples
@@ -182,3 +183,4 @@ Initial release with `ircNotification` and `writeCapabilities` steps.
 [Amazon S3]: https://aws.amazon.com/s3/
 [Treeherder]: https://wiki.mozilla.org/Auto-tools/Projects/Treeherder
 [pytest-selenium]: http://pytest-selenium.readthedocs.io/en/latest/user_guide.html#capabilities-files
+[Pipeline Model Definition Plugin]: https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Model+Definition+Plugin
