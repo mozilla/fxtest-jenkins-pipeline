@@ -16,17 +16,14 @@ def call(String project,
          String jobName,
          String artifactPath = null,
          String logPath = null,
-         String groupSymbol = '?',
+         String groupSymbol = null,
          String groupName = null) {
   machine = getMachine()
   payload = [
     taskId: UUID.randomUUID().toString(),
     buildSystem: machine['name'],
     origin: [kind: 'github.com', project: project, revision: getRevision()],
-    display: [
-      jobSymbol: jobSymbol,
-      jobName: jobName,
-      groupSymbol: groupSymbol],
+    display: getDisplay(jobSymbol, jobName, groupSymbol, groupName),
     state: 'completed',
     result: getResult(),
     jobKind: 'test',
@@ -41,10 +38,6 @@ def call(String project,
     logs: getLogs(logPath),
     version: 1
   ]
-
-  if ( groupName != null) {
-    payload.display.groupName = groupName
-  }
 
   // TODO include ec2-metadata output in payload
   exchange = "exchange/${PULSE_USR}/jobs"
@@ -63,6 +56,18 @@ def getMachine() {
     os: os,
     architecture: architecture
   ]
+}
+
+def getDisplay(jobSymbol, jobName, groupSymbol = null, groupName = null) {
+  display = [
+    jobSymbol: jobSymbol,
+    jobName: jobName,
+    groupSymbol: groupSymbol ? groupSymbol : '?'
+  ]
+  if ( groupName != null) {
+    display.groupName = groupName
+  }
+  return display
 }
 
 def getRevision() {
