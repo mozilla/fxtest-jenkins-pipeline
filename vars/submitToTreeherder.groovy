@@ -44,6 +44,8 @@ def call(String project,
   routingKey = "${PULSE_USR}.${payload.productName}"
   schema = libraryResource 'org/mozilla/fxtest/pulse/schemas/treeherder.yml'
   publishToPulse(exchange, routingKey, JsonOutput.toJson(payload), schema)
+  treeherderURL = "https://treeherder.mozilla.org/#/jobs?repo=${payload.productName}&revision=${payload.origin.revision}"
+  echo "Results will be available to view at $treeherderURL"
 }
 
 def getMachine() {
