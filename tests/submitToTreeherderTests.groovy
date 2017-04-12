@@ -38,4 +38,26 @@ class SubmitToTreeherderTests extends BasePipelineTest {
         assert !display.containsKey('groupName')
     }
 
+    @Test
+    void getLogsReturnsListOfLinkMaps() {
+        helper.registerAllowedMethod('publishToS3', [String.class, String.class], {path, bucket ->
+            [[url:'linkURL', name:'linkName']]})
+        def script = loadScript('vars/submitToTreeherder.groovy')
+        def links = script.getLogs('foo')
+        assert links.size() == 1
+        assert links[0].url == 'linkURL'
+        assert links[0].name == 'linkName'
+    }
+
+    @Test
+    void tbplLogNameIsModified() {
+        helper.registerAllowedMethod('publishToS3', [String.class, String.class], {path, bucket ->
+            [[url:'linkURL', name:'my-tbpl-log']]})
+        def script = loadScript('vars/submitToTreeherder.groovy')
+        def links = script.getLogs('foo')
+        assert links.size() == 1
+        assert links[0].url == 'linkURL'
+        assert links[0].name == 'buildbot_text'
+    }
+
 }
