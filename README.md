@@ -156,26 +156,29 @@ writeCapabilities(
 
 ## Version History
 
-### 1.6 (unreleased)
-Provide a default group for Treeherder jobs.
+### 1.6 (2017-04-13)
+* Changed TBPL log name to `buildbot_text` in Treeherder message for log parsing. ([#12](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/12))
+* Switched to YAML schema for Treeherder message validation. ([#2](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/2))
+* Added link to Treeherder results to console log. ([#11](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/11))
+* Provided a default group for Treeherder jobs. ([#13](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/13))
 
 ### 1.5 (2017-03-31)
-Changed S3 profile `fx-test-jenkins-s3-publisher`.
+* Changed S3 profile to `fx-test-jenkins-s3-publisher`.
 
 ### 1.4 (2017-02-31)
-Introduce `publishToS3`, `publishToPulse`, and `submitToTreeherder` steps.
+* Introduced `publishToS3`, `publishToPulse`, and `submitToTreeherder` steps.
 
 ### 1.3 (2017-02-23)
-Don't mark jobs as unstable if `submitToActiveData` fails.
+* Don't mark jobs as unstable if `submitToActiveData` fails.
 
 ### 1.2 (2017-02-22)
-Added `submitToActiveData` step for publishing structured logs to S3 for processing by ActiveData.
+* Added `submitToActiveData` step for publishing structured logs to S3 for processing by ActiveData.
 
 ### 1.1 (2017-02-13)
-Changed order of arguments for `ircNotification` for ease of specifying alternate channel.
+* Changed order of arguments for `ircNotification` for ease of specifying alternate channel.
 
 ### 1.0 (2017-02-13)
-Initial release with `ircNotification` and `writeCapabilities` steps.
+* Initial release with `ircNotification` and `writeCapabilities` steps.
 
 [Pulse]: https://wiki.mozilla.org/Auto-tools/Projects/Pulse
 [Pipeline Utility Steps Plugin]: https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Utility+Steps+Plugin
