@@ -112,7 +112,8 @@ def getLogs(logPath) {
   if ( logPath != null ) {
     logLinks = publishToS3(logPath, 'net-mozaws-stage-fx-test-treeherder')
     for (link in logLinks) {
-      links.add([url: link.url, name: link.name])
+      name = link.name =~ 'tbpl' ? 'buildbot_text' : link.name
+      links.add([url: link.url, name: name])
     }
   }
   return links
