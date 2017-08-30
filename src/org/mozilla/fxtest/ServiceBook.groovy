@@ -136,10 +136,9 @@ def runStage(test) {
 
 def testProject(String name) {
   node {
-    def Random rand = new Random()
     echo "Testing project " + name
     def failures = 0
-    def tests = ["1", "2"]
+    def tests = getProjectTests(name)
     for (test in tests) {
       stage(test) {
         echo "Running " + test
