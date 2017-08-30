@@ -135,28 +135,32 @@ def runStage(test) {
 }
 
 def testProject(String name) {
-  node {
-    echo "Testing project " + name
-    def failures = []
-    def tests = getProjectTests(name)
-    for (test in tests) {
-      stage(test) {
-        echo "Running " + test
-        echo "URL is " + test.url
-        runStage(test)
-        // need to catch and propagate failures
-        echo "Failed " + failures
-        failures.add(test.name)
-      }
-    }
+    node {
+        echo "Testing project " + name
+        def failures = []
+        def tests = getProjectTests(name)
+
+        for (test in tests) {
+            stage(test) {
+                try {
+                    echo "Running " + test
+                    echo "URL is " + test.url
+                    runStage(test)
+                } catch (exc) {
+                    echo test.name + " failed"
+                    echo "Caught: ${exc}"
+                    failures.add(test.name)
+                }
+            }
+        }
     stage('Ship it!') {
-      if (failures == 0) {
-        sh 'exit 0'
-      } else {
-        sh 'exit 1'
-      }
+        if (failures == 0) {
+            sh 'exit 0'
+        } else {
+            sh 'exit 1'
+            }
+        }
     }
-  }
 }
 
 
