@@ -126,7 +126,7 @@ def runStage(test) {
             echo "checked out"
             node {
                 sh "chmod +x run"
-                sh "./run"
+                sh "${WORKSPACE}/run"
             }
         } else {
             throw new IOException(test.url + " is not allowed")
