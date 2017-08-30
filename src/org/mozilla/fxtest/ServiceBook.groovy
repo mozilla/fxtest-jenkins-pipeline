@@ -153,7 +153,7 @@ def testProject(String name) {
         }
     stage('Ship it!') {
         node {
-            if (failures == 0) {
+            if (failures.size == 0) {
                 sh 'exit 0'
             } else {
                 sh 'exit 1'
