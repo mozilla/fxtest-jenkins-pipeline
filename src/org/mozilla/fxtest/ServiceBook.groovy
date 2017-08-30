@@ -137,13 +137,16 @@ def runStage(test) {
 def testProject(String name) {
   node {
     echo "Testing project " + name
-    def failures = 0
+    def failures = []
     def tests = getProjectTests(name)
     for (test in tests) {
       stage(test) {
         echo "Running " + test
-        failures = rand.nextInt(2)
+        echo "URL is " + test.url
+
+        # need to catch and propagate failures
         echo "Failed " + failures
+        failures.add(test.name)
       }
     }
     stage('Ship it!') {
