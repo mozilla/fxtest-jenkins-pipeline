@@ -143,7 +143,7 @@ def testProject(String name) {
       stage(test) {
         echo "Running " + test
         echo "URL is " + test.url
-
+        runStage(test)
         // need to catch and propagate failures
         echo "Failed " + failures
         failures.add(test.name)
