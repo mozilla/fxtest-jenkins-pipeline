@@ -144,7 +144,7 @@ def testProject(String name) {
         echo "Running " + test
         echo "URL is " + test.url
 
-        # need to catch and propagate failures
+        // need to catch and propagate failures
         echo "Failed " + failures
         failures.add(test.name)
       }
