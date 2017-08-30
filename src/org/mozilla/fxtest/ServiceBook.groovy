@@ -160,7 +160,7 @@ def testProject(String name) {
                 }
             }
         }
-
+    }
 }
 
 
