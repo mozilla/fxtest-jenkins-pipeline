@@ -131,6 +131,19 @@ submitToTreeherder(
 )
 ```
 
+## testProject
+Queries the Service Book project API for the given project `name`, iterates over
+its associated test repositories, checks them out from SCM, and executes their
+```run``` file(s).  Finally, it returns ```exit 0``` on successful/passing
+tests, and ```exit 1``` in the event of failed builds.
+
+## Examples
+```@Library('fxtest@1.7') _
+
+def sb = new org.mozilla.fxtest.ServiceBook()  
+sb.testProject('kinto')
+
+
 ## writeCapabilities
 Writes a JSON file containing the items from the `capabilities` map to the
 specified `path` (for use by [pytest-selenium]). If omitted, the `path`
@@ -156,6 +169,8 @@ writeCapabilities(
 
 ## Version History
 
+### 1.7 (2017-09-04)
+* Introduced `testProject` step.
 ### 1.6 (2017-04-13)
 * Changed TBPL log name to `buildbot_text` in Treeherder message for log parsing. ([#12](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/12))
 * Switched to YAML schema for Treeherder message validation. ([#2](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/2))
