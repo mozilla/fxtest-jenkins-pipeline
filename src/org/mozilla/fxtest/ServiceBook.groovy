@@ -78,7 +78,8 @@ Object getProjectTests(String name) {
     def projects = jsonSlurper.parseText(resp);
 
     for (project in projects.data) {
-        if (project.name == name) {
+        def projectName = name.toLowerCase();
+        if (project.name == projectName) {
             echo "The project " + name + " was found!"
 
             def jenkin_tests = [];
