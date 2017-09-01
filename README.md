@@ -4,6 +4,8 @@ This repository holds
 [Jenkins pipelines](https://jenkins.io/doc/book/pipeline/) used by
 [Firefox Test Engineering](https://wiki.mozilla.org/TestEngineering).
 
+[![Build Status](https://travis-ci.org/mozilla/fxtest-jenkins-pipeline.svg?branch=master)](https://travis-ci.org/mozilla/fxtest-jenkins-pipeline)
+
 ## ircNotification
 Sends a notification to IRC with the specified `channel`, `nick`, and `server`.
 By default it will connect to `irc.mozilla.org:6697` as `fxtest` and join the
