@@ -144,7 +144,7 @@ tests, and ```exit 1``` in the event of failed builds.
 
 def sb = new org.mozilla.fxtest.ServiceBook()  
 sb.testProject('kinto')
-
+```
 
 ## writeCapabilities
 Writes a JSON file containing the items from the `capabilities` map to the
