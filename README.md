@@ -156,7 +156,7 @@ writeCapabilities(
   path: 'fx51win10.json'
 )
 ```
-# ServiceBook Class
+# ServiceBook
 ## testProject
 Queries the Service Book project API for the given project `name`, iterates over
 its associated test repositories, checks them out from SCM, and executes their
