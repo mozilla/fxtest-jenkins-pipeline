@@ -165,6 +165,8 @@ tests, and ```exit 1``` in the event of failed builds.
 
 ## Examples
 ```groovy
+@Library('fxtest') _
+
 def sb = new org.mozilla.fxtest.ServiceBook()  
 sb.testProject('kinto')
 ```
