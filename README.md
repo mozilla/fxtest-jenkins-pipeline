@@ -140,8 +140,7 @@ its associated test repositories, checks them out from SCM, and executes their
 tests, and ```exit 1``` in the event of failed builds.
 
 ## Examples
-```@Library('fxtest@1.7') _
-
+```groovy
 def sb = new org.mozilla.fxtest.ServiceBook()  
 sb.testProject('kinto')
 ```
