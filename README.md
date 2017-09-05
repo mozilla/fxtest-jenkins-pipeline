@@ -172,7 +172,7 @@ writeCapabilities(
 ## Version History
 
 ### 1.7 (2017-09-04)
-* Introduced `testProject` method, which queries Service Book for project repos.
+* Introduced ```ServiceBook``` class, with ```testProject``` method to execute tests for all pipeline associated with the specified project name.
 ### 1.6 (2017-04-13)
 * Changed TBPL log name to `buildbot_text` in Treeherder message for log parsing. ([#12](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/12))
 * Switched to YAML schema for Treeherder message validation. ([#2](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/2))
