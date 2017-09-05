@@ -6,6 +6,7 @@ This repository holds
 
 [![Build Status](https://travis-ci.org/mozilla/fxtest-jenkins-pipeline.svg?branch=master)](https://travis-ci.org/mozilla/fxtest-jenkins-pipeline)
 
+# Pipeline Steps
 ## ircNotification
 Sends a notification to IRC with the specified `channel`, `nick`, and `server`.
 By default it will connect to `irc.mozilla.org:6697` as `fxtest` and join the
@@ -155,9 +156,25 @@ writeCapabilities(
   path: 'fx51win10.json'
 )
 ```
+# ServiceBook
+## testProject
+Queries the Service Book project API for the given project `name`, iterates over
+its associated test repositories, checks them out from SCM, and executes their
+```run``` file(s).  Finally, it returns ```exit 0``` on successful/passing
+tests, and ```exit 1``` in the event of failed builds.
+
+## Examples
+```groovy
+@Library('fxtest') _
+
+def sb = new org.mozilla.fxtest.ServiceBook()  
+sb.testProject('kinto')
+```
 
 ## Version History
 
+### 1.7 (2017-09-04)
+* Introduced ```ServiceBook``` class, with ```testProject``` method to execute tests for all pipeline associated with the specified project name.
 ### 1.6 (2017-04-13)
 * Changed TBPL log name to `buildbot_text` in Treeherder message for log parsing. ([#12](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/12))
 * Switched to YAML schema for Treeherder message validation. ([#2](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/2))
