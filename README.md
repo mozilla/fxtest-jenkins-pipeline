@@ -6,6 +6,7 @@ This repository holds
 
 [![Build Status](https://travis-ci.org/mozilla/fxtest-jenkins-pipeline.svg?branch=master)](https://travis-ci.org/mozilla/fxtest-jenkins-pipeline)
 
+# Pipeline Steps
 ## ircNotification
 Sends a notification to IRC with the specified `channel`, `nick`, and `server`.
 By default it will connect to `irc.mozilla.org:6697` as `fxtest` and join the
@@ -133,18 +134,6 @@ submitToTreeherder(
 )
 ```
 
-## testProject
-Queries the Service Book project API for the given project `name`, iterates over
-its associated test repositories, checks them out from SCM, and executes their
-```run``` file(s).  Finally, it returns ```exit 0``` on successful/passing
-tests, and ```exit 1``` in the event of failed builds.
-
-## Examples
-```groovy
-def sb = new org.mozilla.fxtest.ServiceBook()  
-sb.testProject('kinto')
-```
-
 ## writeCapabilities
 Writes a JSON file containing the items from the `capabilities` map to the
 specified `path` (for use by [pytest-selenium]). If omitted, the `path`
@@ -166,6 +155,18 @@ writeCapabilities(
   desiredCapabilities: capabilities,
   path: 'fx51win10.json'
 )
+```
+# ServiceBook Class
+## testProject
+Queries the Service Book project API for the given project `name`, iterates over
+its associated test repositories, checks them out from SCM, and executes their
+```run``` file(s).  Finally, it returns ```exit 0``` on successful/passing
+tests, and ```exit 1``` in the event of failed builds.
+
+## Examples
+```groovy
+def sb = new org.mozilla.fxtest.ServiceBook()  
+sb.testProject('kinto')
 ```
 
 ## Version History
