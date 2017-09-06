@@ -73,7 +73,7 @@ class HttpResponse {
 
 // Servicebook iterator to get operational tests for a given project
 Object getProjectTests(String name) {
-    resp = doGetHttpRequest("http://servicebook.dev.mozaws.net/api/project").body;
+    resp = doGetHttpRequest("http://servicebook.stage.mozaws.net/api/project").body;
     def jsonSlurper = new JsonSlurperClassic();
     def projects = jsonSlurper.parseText(resp);
 
