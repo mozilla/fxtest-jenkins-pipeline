@@ -171,7 +171,20 @@ def sb = new org.mozilla.fxtest.ServiceBook()
 sb.testProject('kinto')
 ```
 
-## Version History
+## Requirements
+* [Pipeline Http Request Plugin] v1.8.20 or later.
+
+# How to run tests
+
+Make sure you have the latest Gradle install and run:
+
+```sh
+$ gradle check
+BUILD SUCCESSFUL in 1s
+2 actionable tasks: 2 up-to-date
+```
+
+# Version History
 
 ### 1.7 (2017-09-04)
 * Introduced ```ServiceBook``` class, with ```testProject``` method to execute tests for all pipeline associated with the specified project name.
@@ -206,3 +219,4 @@ sb.testProject('kinto')
 [Treeherder]: https://wiki.mozilla.org/Auto-tools/Projects/Treeherder
 [pytest-selenium]: http://pytest-selenium.readthedocs.io/en/latest/user_guide.html#capabilities-files
 [Pipeline Model Definition Plugin]: https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Model+Definition+Plugin
+[Pipeline Http Request Plugin]: https://wiki.jenkins.io/display/JENKINS/HTTP+Request+Plugin

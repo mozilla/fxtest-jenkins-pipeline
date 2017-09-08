@@ -12,6 +12,9 @@ class ServiceBookTests extends BasePipelineTest {
     @Before
     void setUp() throws Exception {
         super.setUp()
+        String fileContents = new File('tests/projects.json').text
+        def resp = [content: fileContents]
+        helper.registerAllowedMethod('httpRequest', [String.class], {url -> resp})
     }
 
     @Test
@@ -30,12 +33,20 @@ class ServiceBookTests extends BasePipelineTest {
         }
     }
 
-    // @Test
-    // void projectWithTests() {
-    //     def resp = [body:'{"data": [{"foo": {"tests": [{"name": "bar", "jenkins_pipeline": true}]}}]}']
-    //     def script = loadScript('src/org/mozilla/fxtest/ServiceBook.groovy')
-    //     script.doGetHttpRequest = { String url -> [resp] }
-    //     def tests = script.getProjectTests('foo')
-    //     assert tests != null
-    // }
+    @Test
+    void projectWithTests() {
+        def script = loadScript('src/org/mozilla/fxtest/ServiceBook.groovy')
+
+        // kinto has 1 jenkins enabled project
+        def tests = script.getProjectTests('kinto')
+        assert tests != null
+        assert tests.size() == 1
+
+        // this project does not exists
+        assert script.getProjectTests('IDONTEXIST') == null
+
+        // Balrog has zero jenkins tests
+        def balrog = script.getProjectTests('Balrog')
+        assert balrog.size() == 0
+    }
 }
