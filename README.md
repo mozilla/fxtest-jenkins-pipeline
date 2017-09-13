@@ -172,7 +172,7 @@ sb.testProject('kinto')
 ```
 
 ## Requirements
-* [Pipeline Http Request Plugin] v1.8.20 or later.
+* [HTTP Request Plugin] v1.8.20 or later.
 
 # How to run tests
 
@@ -186,6 +186,9 @@ BUILD SUCCESSFUL in 1s
 
 # Version History
 
+
+### 1.8 (2017-09-14)
+* Greatly simplified Service Book API calls using the HTTP Request Plugin.
 ### 1.7 (2017-09-04)
 * Introduced ```ServiceBook``` class, with ```testProject``` method to execute tests for all pipeline associated with the specified project name.
 ### 1.6 (2017-04-13)
