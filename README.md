@@ -222,4 +222,4 @@ BUILD SUCCESSFUL in 1s
 [Treeherder]: https://wiki.mozilla.org/Auto-tools/Projects/Treeherder
 [pytest-selenium]: http://pytest-selenium.readthedocs.io/en/latest/user_guide.html#capabilities-files
 [Pipeline Model Definition Plugin]: https://wiki.jenkins-ci.org/display/JENKINS/Pipeline+Model+Definition+Plugin
-[Pipeline Http Request Plugin]: https://wiki.jenkins.io/display/JENKINS/HTTP+Request+Plugin
+[HTTP Request Plugin]: https://wiki.jenkins.io/display/JENKINS/HTTP+Request+Plugin
