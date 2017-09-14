@@ -4,7 +4,7 @@ import groovy.json.JsonSlurperClassic;
 // Servicebook iterator to get operational tests for a given project
 Object getProjectTests(String name) {
     def projectName = name.toLowerCase();
-    def resp = httpRequest "https://servicebook.stage.mozaws.net/api/project";
+    def resp = httpRequest "https://servicebook-api.stage.mozaws.net/api/project";
     def jsonSlurper = new JsonSlurperClassic();
     def projects = jsonSlurper.parseText(resp.content);
 
