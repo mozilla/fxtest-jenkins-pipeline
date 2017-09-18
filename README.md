@@ -186,7 +186,8 @@ BUILD SUCCESSFUL in 1s
 
 # Version History
 
-
+### 1.9 (2017-09-14)
+* Fixed the production Service Book API URL
 ### 1.8 (2017-09-14)
 * Greatly simplified Service Book API calls using the HTTP Request Plugin.
 ### 1.7 (2017-09-04)
