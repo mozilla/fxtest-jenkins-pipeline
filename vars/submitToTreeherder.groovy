@@ -22,7 +22,7 @@ def call(String project,
   payload = [
     taskId: UUID.randomUUID().toString(),
     buildSystem: machine['name'],
-    origin: [kind: 'github.com', project: project, revision: getRevision()],
+    origin: [kind: 'github.com', project: project, revision: "${GIT_COMMIT}"],
     display: getDisplay(jobSymbol, jobName, groupSymbol, groupName),
     state: 'completed',
     result: getResult(),
@@ -76,10 +76,6 @@ def getDisplay(jobSymbol, jobName, groupSymbol = null, groupName = null) {
     display.groupName = 'Executed by Jenkins'
   }
   return display
-}
-
-def getRevision() {
-  return sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
 }
 
 def getResult() {
