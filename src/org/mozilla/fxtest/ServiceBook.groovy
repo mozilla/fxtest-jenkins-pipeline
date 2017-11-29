@@ -48,11 +48,11 @@ def runStage(test) {
             node {
                 checkout([
                     $class: 'GitSCM',
-                    branches: [[name: '*/master']],
+                    branches: [[name: 'run-in-docker']],
                     doGenerateSubmoduleConfigurations: false,
                     extensions: [[$class: 'CleanCheckout']],
                     submoduleCfg: [],
-                    userRemoteConfigs: [[url: test.url + '.git']]])
+                    userRemoteConfigs: [[url: 'https://github.com/davehunt/kinto-integration-tests.git']]])
                 def customImage = docker.build("${test.name}:${env.BUILD_ID}")
                 customImage.inside {
                   sh 'chmod +x run'
