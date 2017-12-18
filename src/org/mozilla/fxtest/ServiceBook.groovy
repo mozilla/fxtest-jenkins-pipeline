@@ -46,13 +46,14 @@ def runStage(test) {
         if (validURL(test.url)) {
             echo "checking out " + test.url + ".git"
             node {
-                checkout([$class: 'GitSCM',
-                branches: [[name: '*/master']],
-                doGenerateSubmoduleConfigurations: false,
-                extensions: [[$class: 'CleanCheckout']],
-                submoduleCfg: [],
-                userRemoteConfigs: [[url: test.url + '.git']]]
-                )
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: '*/master']],
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [[$class: 'CleanCheckout']],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[url: test.url + '.git']]
+                ])
             }
             echo "checked out"
             node {
@@ -71,24 +72,22 @@ def testProject(String name) {
     def tests = getProjectTests(name)
 
     for (test in tests) {
-        stage(test) {
-            try {
-                echo "Running " + test
-                echo "URL is " + test.url
-                runStage(test)
-            } catch (exc) {
-                echo test.name + " failed"
-                echo "Caught: ${exc}"
-                failures.add(test.name)
-            }
+        try {
+            echo "Running " + test
+            echo "URL is " + test.url
+            runStage(test)
+        } catch (exc) {
+            echo test.name + " failed"
+            echo "Caught: ${exc}"
+            failures.add(test.name)
         }
+    }
     stage('Ship it!') {
         node {
             if (failures.size == 0) {
                 sh 'exit 0'
             } else {
                 sh 'exit 1'
-                }
             }
         }
     }
