@@ -36,7 +36,7 @@ output to the console log and `ProcessingException` will be thrown.
 
 ### Requirements
 * Pulse credentials to be configured in Jenkins.
-* [Pipeline Model Definition Plugin] v1.1.2 or later.
+* [Pipeline Model Definition Plugin] v1.2 or later.
 * [Pipeline Utility Steps Plugin].
 
 ### Examples
@@ -186,12 +186,19 @@ BUILD SUCCESSFUL in 1s
 
 # Version History
 
+### 1.10 (2018-01-15)
+* Remove superfluous test stage when using Service Book.
+* Use `GIT_COMMIT` when reporting revision to Treeherder.
+
 ### 1.9 (2017-09-14)
 * Fixed the production Service Book API URL
+
 ### 1.8 (2017-09-14)
 * Greatly simplified Service Book API calls using the HTTP Request Plugin.
+
 ### 1.7 (2017-09-04)
 * Introduced ```ServiceBook``` class, with ```testProject``` method to execute tests for all pipeline associated with the specified project name.
+
 ### 1.6 (2017-04-13)
 * Changed TBPL log name to `buildbot_text` in Treeherder message for log parsing. ([#12](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/12))
 * Switched to YAML schema for Treeherder message validation. ([#2](https://github.com/mozilla/fxtest-jenkins-pipeline/issues/2))
